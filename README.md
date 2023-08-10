@@ -44,13 +44,13 @@ yarn install
 yarn chain
 ```
 
-### 6. Frontend starten
+### 6.Weiteres Terminalfenster öfnnen und Frontend starten
 
 ```bash
 yarn start
 ```
 
-### 7. Smart Contract deployen
+### 7. Weiteres Terminalfenster öffnen und Smart Contract deployen
 
 ```bash
 yarn deploy
@@ -59,7 +59,7 @@ yarn deploy
 
 ### Lokale Währung ins Wallet laden
 
-Um Transaktionen auf der lokalen Blockchain durchzuführen, muss man, genau wie im Ethereum Mainnet, mit Gas bezahlen. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie  auf das folgende Symbol:
+Um Transaktionen auf der lokalen Blockchain durchzuführen, muss man, genau wie im Ethereum Mainnet, mit Gas bezahlen. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
   <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/30e21494-c29c-4ef2-beec-6ddf7ad0e1cf" width="160">
 
 
