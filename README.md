@@ -1,136 +1,52 @@
-# 🏗 Scaffold-ETH
+Prototyp eines digitalen Produktpasses auf Blockchainbasis
 
-> everything you need to build on Ethereum! 🚀
+Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der auf der Ethereum-Blockchain implementiert ist. Es wurde in Zusammenarbeit mit Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Verfolgung und Authentifizierung von Weinprodukten, um Transparenz und Vertrauen in die Lieferkette zu schaffen.
 
-🧪 Quickly experiment with Solidity using a frontend that adapts to your smart contract:
+Voraussetzungen
 
-![image](https://user-images.githubusercontent.com/2653167/124158108-c14ca380-da56-11eb-967e-69cde37ca8eb.png)
+Node (v18 LTS)
+Yarn (v1.x)
+Git
+Installation und Setup
 
----
+Befolge diese Schritte, um das Projekt auf deinem lokalen System einzurichten:
 
-🎖 Scaffold-ETH 2 is the latest version of this developer experience, we recommend you fork: https://github.com/scaffold-eth/se-2
-
----
-
-# 🏄‍♂️ Quick Start
-
-Prerequisites: [Node (v18 LTS)](https://nodejs.org/en/download/) plus [Yarn (v1.x)](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
-
-🚨 If you are using a version < v18 you will need to remove `openssl-legacy-provider` from the `start` script in `package.json`
-
-> 1️⃣ clone/fork 🏗 scaffold-eth:
-
-```bash
-git clone https://github.com/scaffold-eth/scaffold-eth.git
-```
-
-> 2️⃣ install and start your 👷‍ Hardhat chain:
-
-```bash
-cd scaffold-eth
+1. In gewünschtes Verzeichnis wechseln
+2. Klonen von GitHub im Terminal
+bash
+Copy code
+git clone https://github.com/KonstantinSe/WineApp_Master_Thesis
+3. Ins Verzeichnis wechseln
+bash
+Copy code
+cd WineApp_Master_Thesis
+4. Yarn installieren, um Abhängigkeiten zu installieren
+bash
+Copy code
+yarn install
+5. Neues Terminalfenster öffnen und lokale Blockchain starten
+bash
+Copy code
+yarn chain
+6. Frontend starten
+bash
+Copy code
+cd scaffold-eth (hier Wine App…)
 yarn install
 yarn chain
-```
+🚨 Wenn deine Verträge nicht auf localhost bereitgestellt sind, musst du das Standardnetzwerk in App.jsx aktualisieren, damit es mit deinem Standardnetzwerk in hardhat-config.js übereinstimmt.
 
-> 3️⃣ in a second terminal window, start your 📱 frontend:
+Fehlerbehebung
 
-🚨 if your contracts are not deployed to localhost, you will need to update the default network in `App.jsx` to match your default network in `hardhat-config.js`.
+Fehlermeldung: Caller is not the owner
+Da die Funktionen zum Schreiben auf die Blockchain (z.B. Wein geerntet) eine Sicherheitsfunktion durch den Ownable-Vertrag aufweisen, muss bei dieser Fehlermeldung die Ethereum-Adresse, die im Frontend oben links angezeigt wird, überprüft werden. Der Grund ist, dass Hardhat beim Deployen manchmal eine andere Adresse verwendet.
 
-```bash
-cd scaffold-eth
-yarn start
-```
+Lösung:
 
-> 4️⃣ in a third terminal window, 🛰 deploy your contract:
-
-🚨 if you are not deploying to localhost, you will need to run `yarn generate` first and then fund the deployer account. To view account balances, run `yarn account`. You will aslo need to update `hardhat-config.js` with the correct default network.
-
-```bash
-cd scaffold-eth
-yarn deploy
-```
-
-🔏 Edit your smart contract `WineSupplyChain.sol` in `packages/hardhat/contracts`
-
-📝 Edit your frontend `App.jsx` in `packages/react-app/src`
-
-💼 Edit your deployment scripts in `packages/hardhat/deploy`
-
-📱 Open http://localhost:3000 to see the app
-
-🚨📡 To deploy to a public domain, use `yarn surge`. You will need to have a surge account and have the surge CLI installed. There is also the option to deploy to IPFS using `yarn ipfs` and `yarn s3` to deploy to an AWS bucket 🪣 There are scripts in the `packages/react-app/src/scripts` folder to help with this.`
-
-# 📚 Documentation
-
-Documentation, tutorials, challenges, and many more resources, visit: [docs.scaffoldeth.io](https://docs.scaffoldeth.io)
-
-
-# 🍦 Other Flavors
-- [scaffold-eth-typescript](https://github.com/scaffold-eth/scaffold-eth-typescript)
-- [scaffold-eth-tailwind](https://github.com/stevenpslade/scaffold-eth-tailwind)
-- [scaffold-nextjs](https://github.com/scaffold-eth/scaffold-eth/tree/scaffold-nextjs)
-- [scaffold-chakra](https://github.com/scaffold-eth/scaffold-eth/tree/chakra-ui)
-- [Scaffold-ETH x Buildbear](https://github.com/BuildBearLabs/scaffold-eth)
-- [eth-hooks](https://github.com/scaffold-eth/eth-hooks)
-- [eth-components](https://github.com/scaffold-eth/eth-components)
-- [scaffold-eth-expo](https://github.com/scaffold-eth/scaffold-eth-expo)
-- [scaffold-eth-truffle](https://github.com/trufflesuite/scaffold-eth)
-
-
-
-# 🔭 Learning Solidity
-
-📕 Read the docs: https://docs.soliditylang.org
-
-📚 Go through each topic from [solidity by example](https://solidity-by-example.org) editing `WineSupplyChain.sol` in **🏗 scaffold-eth**
-
-- [Primitive Data Types](https://solidity-by-example.org/primitives/)
-- [Mappings](https://solidity-by-example.org/mapping/)
-- [Structs](https://solidity-by-example.org/structs/)
-- [Modifiers](https://solidity-by-example.org/function-modifier/)
-- [Events](https://solidity-by-example.org/events/)
-- [Inheritance](https://solidity-by-example.org/inheritance/)
-- [Payable](https://solidity-by-example.org/payable/)
-- [Fallback](https://solidity-by-example.org/fallback/)
-
-📧 Learn the [Solidity globals and units](https://docs.soliditylang.org/en/latest/units-and-global-variables.html)
-
-# 🛠 Buidl
-
-Check out all the [active branches](https://github.com/scaffold-eth/scaffold-eth/branches/active), [open issues](https://github.com/scaffold-eth/scaffold-eth/issues), and join/fund the 🏰 [BuidlGuidl](https://BuidlGuidl.com)!
-
-  
- - 🚤  [Follow the full Ethereum Speed Run](https://medium.com/@austin_48503/%EF%B8%8Fethereum-dev-speed-run-bd72bcba6a4c)
-
-
- - 🎟  [Create your first NFT](https://github.com/scaffold-eth/scaffold-eth/tree/simple-nft-example)
- - 🥩  [Build a staking smart contract](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-1-decentralized-staking)
- - 🏵  [Deploy a token and vendor](https://github.com/scaffold-eth/scaffold-eth/tree/challenge-2-token-vendor)
- - 🎫  [Extend the NFT example to make a "buyer mints" marketplace](https://github.com/scaffold-eth/scaffold-eth/tree/buyer-mints-nft)
- - 🎲  [Learn about commit/reveal](https://github.com/scaffold-eth/scaffold-eth-examples/tree/commit-reveal-with-frontend)
- - ✍️  [Learn how ecrecover works](https://github.com/scaffold-eth/scaffold-eth-examples/tree/signature-recover)
- - 👩‍👩‍👧‍👧  [Build a multi-sig that uses off-chain signatures](https://github.com/scaffold-eth/scaffold-eth/tree/meta-multi-sig)
- - ⏳  [Extend the multi-sig to stream ETH](https://github.com/scaffold-eth/scaffold-eth/tree/streaming-meta-multi-sig)
- - ⚖️  [Learn how a simple DEX works](https://medium.com/@austin_48503/%EF%B8%8F-minimum-viable-exchange-d84f30bd0c90)
- - 🦍  [Ape into learning!](https://github.com/scaffold-eth/scaffold-eth/tree/aave-ape)
-
-# 💌 P.S.
-
-🌍 You need an RPC key for testnets and production deployments, create an [Alchemy](https://www.alchemy.com/) account and replace the value of `ALCHEMY_KEY = xxx` in `packages/react-app/src/constants.js` with your new key.
-
-📣 Make sure you update the `InfuraID` before you go to production. Huge thanks to [Infura](https://infura.io/) for our special account that fields 7m req/day!
-
-# 🏃💨 Speedrun Ethereum
-Register as a builder [here](https://speedrunethereum.com) and start on some of the challenges and build a portfolio.
-
-# 💬 Support Chat
-
-Join the telegram [support chat 💬](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA) or buidlguidl [discord](https://discord.gg/pRsr6rwG) to ask questions and find others building with 🏗 scaffold-eth!
-
----
-
-🙏 Please check out our [Gitcoin grant](https://gitcoin.co/grants/2851/scaffold-eth) too!
-
-### Automated with Gitpod
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/scaffold-eth/scaffold-eth)
+Unter packages/hardhat/deploy/00_deploy_your_contract.js in Zeile 37 diese Adresse hineinkopieren:
+bash
+Copy code
+await WineSupplyChain.transferOwnership(
+      "0x4832980a9368422444C1fe1d2e62870BE911741F"
+);
+Außerdem muss einmalig die selbe Adresse unter packages/react-app/src/views/UserInterface.jsx in das Adress-Dictionary in Zeile 9 kopiert werden. So wird auch der Name Schloss Proschwitz neben der Ethereum-Adresse im User Interface (wenn die Daten des Weins abgerufen werden) im Frontend angezeigt.
