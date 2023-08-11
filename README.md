@@ -1,10 +1,19 @@
 
 # Prototyp eines digitalen Produktpasses für Wein auf Basis von Blockchain-Technologie
 
-Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der auf der Ethereum-Blockchain implementiert wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen, um Transparenz und Vertrauen in der Lieferkette zu schaffen.
+Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der für die Ethereum-Blockchain und andere EVM basierte Blockchains entworfen wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen.
+
+### Flowchart
 <p align="center">
-  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/b92a67bd-f30b-4f4b-883e-41ef643c3169" width="500">
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/dcea5dd1-c501-423a-9030-13f7ee108fa7" width="600">
 </p>
+
+
+### User Interface
+<p align="center">
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/b92a67bd-f30b-4f4b-883e-41ef643c3169" width="600">
+</p>
+
 
 
 ## Voraussetzungen
@@ -44,7 +53,7 @@ yarn install
 yarn chain
 ```
 
-### 6.Weiteres Terminalfenster öfnnen und Frontend starten
+### 6.Weiteres Terminalfenster öffnen und Frontend starten
 
 ```bash
 yarn start
@@ -59,7 +68,7 @@ yarn deploy
 
 ### Lokale Währung ins Wallet laden
 
-Um Transaktionen auf der lokalen Blockchain durchzuführen, muss man, genau wie im Ethereum Mainnet, mit Gas bezahlen. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
+Um Transaktionen auf der lokalen Blockchain durchzuführe muss, genau wie im Ethereum Mainnet, mit Gas bezahlt werden. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
   <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/30e21494-c29c-4ef2-beec-6ddf7ad0e1cf" width="160">
 
 
