@@ -1,7 +1,8 @@
 
 # Prototyp eines digitalen Produktpasses für Wein auf Basis von Blockchain-Technologie
 
-Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der für die Ethereum-Blockchain und andere EVM basierte Blockchains entworfen wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen.
+Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der für die Ethereum-Blockchain und andere EVM-basierte Blockchains entworfen wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen.
+Zur Erstellung wurde das Ethereum Entwicklungsframework Scaffold-Eth genutzt.
 
 ### Flowchart
 <p align="center">
@@ -68,14 +69,14 @@ yarn deploy
 
 ### Lokale Währung ins Wallet laden
 
-Um Transaktionen auf der lokalen Blockchain durchzuführe muss, genau wie im Ethereum Mainnet, mit Gas bezahlt werden. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
+Um Transaktionen auf der lokalen Blockchain durchzuführen, muss genau wie im Ethereum Mainnet, mit Gas bezahlt werden. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
   <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/30e21494-c29c-4ef2-beec-6ddf7ad0e1cf" width="160">
 
 
 ### Erstellung einer Weincharge
 
 - Gehen Sie zum Tab "Admin Interface".
-- Wähle Sie die Weinsorte aus.
+- Wählen Sie die Weinsorte aus.
 - Eine Chargen-ID wird automatisch erstellt, beginnend bei 0.
 - Achten Sie darauf, die korrekte Reihenfolge des Herstellungsprozesses einzuhalten, sonst gibt der Smart Contract eine Fehlermeldung zurück.
 - Hinweis: Die Dateneingabe mittels QR-Code funktioniert zum aktuellen Zeitpunkt noch nicht.
