@@ -1,10 +1,21 @@
 
 # Prototyp eines digitalen Produktpasses für Wein auf Basis von Blockchain-Technologie
 
-Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der auf der Ethereum-Blockchain implementiert wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen, um Transparenz und Vertrauen in der Lieferkette zu schaffen.
+Dieses Projekt ist ein Prototyp eines digitalen Produktpasses, der für die Ethereum-Blockchain und andere EVM-basierte Blockchains entworfen wurde. Er wurde in Zusammenarbeit mit dem Weingut Schloss Proschwitz entwickelt und dient als Grundlage für eine Masterarbeit. Der Fokus liegt auf der Rückverfolgung und Authentifizierung von Weinen.
+Zur Erstellung wurde das Ethereum Entwicklungsframework Scaffold-Eth genutzt.
+
+### Flowchart
 <p align="center">
-  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/ff0846c5-7cf9-466f-ac3d-41131ae83589" width="500">
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/dcea5dd1-c501-423a-9030-13f7ee108fa7" width="600">
 </p>
+
+
+### User Interface
+<p align="center">
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/b92a67bd-f30b-4f4b-883e-41ef643c3169" width="600">
+</p>
+
+
 
 ## Voraussetzungen
 
@@ -43,13 +54,13 @@ yarn install
 yarn chain
 ```
 
-### 6. Frontend starten
+### 6.Weiteres Terminalfenster öffnen und Frontend starten
 
 ```bash
 yarn start
 ```
 
-### 7. Smart Contract deployen
+### 7. Weiteres Terminalfenster öffnen und Smart Contract deployen
 
 ```bash
 yarn deploy
@@ -58,13 +69,14 @@ yarn deploy
 
 ### Lokale Währung ins Wallet laden
 
-Um Transaktionen auf der lokalen Blockchain durchzuführen, muss man, genau wie im Ethereum Mainnet, mit Gas bezahlen. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie  auf das folgende Symbol:
-  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/7b71b8a3-f4b8-4500-af23-0e88a69b30f2" width="150">
+Um Transaktionen auf der lokalen Blockchain durchzuführen, muss genau wie im Ethereum Mainnet, mit Gas bezahlt werden. Das Gas wird mit ETH beglichen. Um ETH in das lokale Wallet zu laden, klicken Sie auf das folgende Symbol:
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/30e21494-c29c-4ef2-beec-6ddf7ad0e1cf" width="160">
+
 
 ### Erstellung einer Weincharge
 
 - Gehen Sie zum Tab "Admin Interface".
-- Wähle Sie die Weinsorte aus.
+- Wählen Sie die Weinsorte aus.
 - Eine Chargen-ID wird automatisch erstellt, beginnend bei 0.
 - Achten Sie darauf, die korrekte Reihenfolge des Herstellungsprozesses einzuhalten, sonst gibt der Smart Contract eine Fehlermeldung zurück.
 - Hinweis: Die Dateneingabe mittels QR-Code funktioniert zum aktuellen Zeitpunkt noch nicht.
@@ -82,27 +94,33 @@ Um Transaktionen auf der lokalen Blockchain durchzuführen, muss man, genau wie 
 
 ## Fehlerbehebungen
 
-### Fehlermeldung: Caller is not the owner
 
+### Fehlermeldung: "Caller is not the owner"
+![image](https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/757bc027-74ed-460c-8087-3c254256e510)
 
-Da die Funktionen zum Schreiben auf der Blockchain (z.B. Wein geerntet) Sicherheitsfunktionen durch den Ownable-Vertrag aufweisen, muss bei dieser Fehlermeldung die Ethereum-Adresse, die im Frontend oben links angezeigt wird, überprüft werden. Der Grund ist, dass Hardhat beim Deployen manchmal eine andere Adresse verwendet.
+Diese Fehlermeldung kann auftreten, wenn versucht wird, bestimmte Transaktionen auf der Blockchain durchzuführen, die nur der Eigentümer ausführen darf. Sie ist das Ergebnis einer Sicherheitsfunktion, die durch den geerbten Ownable-Vertrag implementiert wurde. Der Fehler tritt auf, wenn der Vertrag feststellt, dass die Adresse, die die Transaktion ausführt, nicht die Eigentümeradresse ist.
 
-**Lösung:**
+Der Grund für diese Diskrepanz könnte sein, dass beim Deployen des Vertrags eine andere Adresse verwendet wurde, als die, die aktuell verwendet wird. 
 
-Die im Frontend oben rechts angezeigte (eigene) Ethereum Adresse kopieren und
+**Lösung des Problems:**
 
-- Unter `packages/hardhat/deploy/00_deploy_your_contract.js` in Zeile 37 diese Adresse einfügen:
+1. **Ermittlung der Ethereum-Adresse:** Die im Frontend oben rechts angezeigte Ethereum-Adresse des Benutzers muss kopiert werden.
 
-  ```bash
-  await WineSupplyChain.transferOwnership(
-        "0x4832980a9368422444C1fe1d2e62870BE911741F"
-  );
-  ```
+2. **Anpassung des Eigentümers im Vertrag:** Die kopierte Adresse muss in der Datei `packages/hardhat/deploy/00_deploy_your_contract.js` in Zeile 37 eingefügt werden:
 
-  anschließend im Terminal folgenden Befehl ausführen:
+   ```bash
+   await WineSupplyChain.transferOwnership(
+         „0x4832980a9368422444C1fe1d2e62870BE911741F"
+   ```
+3. **Den Vertrag erneut deployen**:
 ```bash
 yarn deploy --reset
 ```
+
+
+Durch diese Anpassung wird der Vertrag so aktualisiert, dass er die neue Adresse als Eigentümer erkennt. Dies sollte die Fehlermeldung beheben und ermöglichen, dass die Transaktionen wie vorgesehen durchgeführt werden können.
+
+
 
 - Außerdem muss einmalig die selbe Adresse unter `packages/react-app/src/views/UserInterface.jsx` in das Adress-Dictionary in Zeile 9 kopiert werden. So wird der Name Schloss Proschwitz dieser  Ethereum-Adresse zugeordnet und im User Interface (wenn die Daten des Weins abgerufen werden) angezeigt.
 
