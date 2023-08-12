@@ -19,9 +19,9 @@ Zur Erstellung wurde das Ethereum Entwicklungsframework Scaffold-Eth genutzt.
 
 ## Voraussetzungen
 
-- Node (v18 LTS)
-- Yarn (v1.x)
-- Git
+- Node (v18 LTS) https://nodejs.org/de/download
+- Yarn (v1.x) über npm package manager
+- Git https://git-scm.com/downloads
 
 ## Installation und Setup
 
