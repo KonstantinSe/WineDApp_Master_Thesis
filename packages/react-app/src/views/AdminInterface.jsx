@@ -84,7 +84,7 @@ export default function AdminInterface({ address, mainnetProvider, tx, readContr
                       " gwei",
                   );
                 }
-                await transaction.wait(); // Wait for the transaction to be mined
+                await transaction.wait();
                 const chargeID = await writeContracts.WineSupplyChain.callStatic.harvestGrapes(grapeName);
                 const currentID = chargeID.toNumber() - 1;
                 setNextId("ID der nächsten Charge: " + chargeID.toNumber().toString());

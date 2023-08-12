@@ -6,7 +6,7 @@ import { SyncOutlined, QrcodeOutlined } from "@ant-design/icons";
 import { Address, Balance, Events } from "../components";
 
 const addressDictionary = {
-  "0x4832980a9368422444C1fe1d2e62870BE911741F": "Schloss Proschwitz",
+  "0x4832980a9368422444C1fe1d2e62870BE911741F": "✅ Schloss Proschwitz",
 };
 
 export default function UserInterface({ tx, readContracts }) {
@@ -17,7 +17,7 @@ export default function UserInterface({ tx, readContracts }) {
   const [weinProduziert, setWeinProduziert] = useState();
   const [weinAbgefuellt, setWeinAbgefuellt] = useState();
   const [loading, setLoading] = useState(false);
-  const [wineYear, setWineYear] = useState(); // <---- This is the correct place to declare useState
+  const [wineYear, setWineYear] = useState(); 
 
   const getWineYear = timestamp => {
     const dateObject = new Date(timestamp * 1000);
@@ -98,9 +98,8 @@ export default function UserInterface({ tx, readContracts }) {
               const badgeData = await tx(readContracts.WineSupplyChain.callStatic.getBadgeData(badgeID));
               setBadgeData(badgeData);
 
-              const year = getWineYear(badgeData[7]); // Get the year from the bottling date
-              setWineYear(year); // Set the wine year state
-
+              const year = getWineYear(badgeData[7]); 
+              setWineYear(year); 
               setDatum(formatDate(badgeData[1]));
               setDatum_verarbeitet(formatDate(badgeData[3]));
               setWeinProduziert(formatDate(badgeData[5]));
