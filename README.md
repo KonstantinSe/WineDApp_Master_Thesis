@@ -12,7 +12,7 @@ Zur Erstellung wurde das Ethereum Entwicklungsframework Scaffold-Eth genutzt.
 
 ### User Interface
 <p align="center">
-  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/b92a67bd-f30b-4f4b-883e-41ef643c3169" width="600">
+  <img src="https://github.com/KonstantinSe/WineDApp_Master_Thesis/assets/120366135/f07114aa-0cbd-4896-8d0e-b864973efee5" width="600">
 </p>
 
 
